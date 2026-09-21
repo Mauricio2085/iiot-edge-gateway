@@ -1,0 +1,11 @@
+{
+  "name": "askill-sim-lab-nodered",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Paletas del banco SIM-LAB: dashboard, Modbus TCP, OPC UA",
+  "dependencies": {
+    "node-red-contrib-modbus": "5.60.2",
+    "node-red-contrib-opcua": "0.2.355",
+    "node-red-dashboard": "3.6.6"
+  }
+}

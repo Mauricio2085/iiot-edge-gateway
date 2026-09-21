@@ -1,0 +1,34 @@
+services:
+  nodered:
+    build:
+      context: ./nodered
+      dockerfile: Dockerfile
+    image: askill-sim-lab-nodered:local
+    container_name: askill-sim-lab
+    hostname: askill-sim-lab
+    restart: unless-stopped
+    ports:
+      - "1880:1880"     # editor + dashboard /ui
+      - "5020:5020"     # Modbus TCP slave
+      - "54840:54840"   # OPC UA server
+    env_file:
+      - .env
+    environment:
+      TZ: America/Bogota
+      PORT: "1880"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./nodered/flows.json:/data/flows.json
+      - ./nodered/settings.js:/data/settings.js
+      - ./nodered/lab:/data/lab:ro
+      - nodered_context:/data/context
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:1880/"]
+      interval: 30s
+      timeout: 5s
+      retries: 8
+      start_period: 40s
+
+volumes:
+  nodered_context:

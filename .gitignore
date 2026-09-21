@@ -1,0 +1,24 @@
+.env
+.env.local
+.env.*.local
+
+# Node-RED runtime / secrets (nunca versionar credenciales)
+nodered/node_modules/
+nodered/.npm/
+nodered/flows_cred.json
+nodered/.config.users.json
+nodered/.config.runtime.json
+nodered/.config.nodes.json
+nodered/.config.nodes.json.backup
+nodered/.config.runtime.json.backup
+nodered/context/
+nodered/*.backup
+
+# Docker
+.docker/
+
+# OS / editor
+.DS_Store
+*.log
+.idea/
+.vscode/
