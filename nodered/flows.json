@@ -1,0 +1,1259 @@
+[
+  {
+    "id": "658f5703658f5703",
+    "type": "tab",
+    "label": "0 · Servidores OT",
+    "disabled": false,
+    "info": "Slave Modbus :5020 (camino feliz). Servidor OPC UA para UaExpert; la UI no escribe OPC."
+  },
+  {
+    "id": "12b5c66012b5c660",
+    "type": "tab",
+    "label": "1 · Presets → Modbus",
+    "disabled": false,
+    "info": "Cuatro escenarios + pocos knobs. Solo FC16 TCP al slave."
+  },
+  {
+    "id": "3db848a83db848a8",
+    "type": "tab",
+    "label": "2 · Modbus → JSON",
+    "disabled": false,
+    "info": "Poll FC3 8 s. Inject opcional OPC UA. HTTP Request disabled."
+  },
+  {
+    "id": "5a0cedf25a0cedf2",
+    "type": "ui_base",
+    "theme": {
+      "name": "theme-dark",
+      "lightTheme": {
+        "default": "#0094CE",
+        "baseColor": "#097479",
+        "baseFont": "Helvetica Neue,Arial,sans-serif",
+        "edited": true,
+        "reset": false
+      },
+      "darkTheme": {
+        "default": "#097479",
+        "baseColor": "#0f766e",
+        "baseFont": "Helvetica Neue,Arial,sans-serif",
+        "edited": true,
+        "reset": false
+      },
+      "customTheme": {
+        "name": "Untitled Theme",
+        "default": "#4B7930",
+        "baseColor": "#4B7930",
+        "baseFont": "Helvetica Neue,Arial,sans-serif"
+      },
+      "themeState": {
+        "base-color": {
+          "default": "#0f766e",
+          "value": "#0f766e",
+          "edited": true
+        },
+        "base-font": {
+          "value": "Helvetica Neue,Arial,sans-serif"
+        },
+        "page-titlebar-backgroundColor": {
+          "value": "#0f766e",
+          "edited": false
+        },
+        "page-backgroundColor": {
+          "value": "#111111",
+          "edited": false
+        },
+        "page-sidebar-backgroundColor": {
+          "value": "#333333",
+          "edited": false
+        },
+        "group-textColor": {
+          "value": "#2dd4bf",
+          "edited": false
+        },
+        "group-borderColor": {
+          "value": "#555555",
+          "edited": false
+        },
+        "group-backgroundColor": {
+          "value": "#333333",
+          "edited": false
+        },
+        "widget-textColor": {
+          "value": "#eeeeee",
+          "edited": false
+        },
+        "widget-backgroundColor": {
+          "value": "#0f766e",
+          "edited": false
+        },
+        "widget-borderColor": {
+          "value": "#333333",
+          "edited": false
+        }
+      },
+      "angularTheme": {
+        "primary": "teal",
+        "accents": "cyan",
+        "warn": "red",
+        "background": "grey"
+      }
+    },
+    "site": {
+      "name": "Askill SIM-LAB",
+      "hideToolbar": "false",
+      "allowSwipe": "false",
+      "lockMenu": "false",
+      "allowTempTheme": "true",
+      "dateFormat": "DD/MM/YYYY",
+      "sizes": {
+        "sx": 48,
+        "sy": 48,
+        "gx": 6,
+        "gy": 6,
+        "cx": 6,
+        "cy": 6,
+        "px": 0,
+        "py": 0
+      }
+    }
+  },
+  {
+    "id": "f17f7946f17f7946",
+    "type": "ui_tab",
+    "name": "SIM-LAB",
+    "icon": "dashboard",
+    "disabled": false,
+    "hidden": false
+  },
+  {
+    "id": "621ed636621ed636",
+    "type": "ui_group",
+    "name": "Escenarios",
+    "tab": "f17f7946f17f7946",
+    "order": 1,
+    "disp": true,
+    "width": "6",
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "4f3240054f324005",
+    "type": "ui_group",
+    "name": "Ajuste fino",
+    "tab": "f17f7946f17f7946",
+    "order": 2,
+    "disp": true,
+    "width": "6",
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "5a3012bf5a3012bf",
+    "type": "ui_group",
+    "name": "JSON ingest (debug)",
+    "tab": "f17f7946f17f7946",
+    "order": 3,
+    "disp": true,
+    "width": "6",
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "8363f82f8363f82f",
+    "type": "modbus-client",
+    "name": "127.0.0.1:5020",
+    "clienttype": "tcp",
+    "bufferCommands": true,
+    "stateLogEnabled": false,
+    "queueLogEnabled": false,
+    "failureLogEnabled": true,
+    "tcpHost": "127.0.0.1",
+    "tcpPort": "5020",
+    "tcpType": "DEFAULT",
+    "serialPort": "/dev/ttyUSB",
+    "serialType": "RTU-BUFFERD",
+    "serialBaudrate": "9600",
+    "serialDatabits": "8",
+    "serialStopbits": "1",
+    "serialParity": "none",
+    "serialConnectionDelay": "100",
+    "serialAsciiResponseStartDelimiter": "0x3A",
+    "unit_id": "1",
+    "commandDelay": 1,
+    "clientTimeout": 2000,
+    "reconnectOnTimeout": true,
+    "reconnectTimeout": 3000,
+    "parallelUnitIdsAllowed": true,
+    "showWarnings": true,
+    "showLogs": false
+  },
+  {
+    "id": "48ac06da48ac06da",
+    "type": "OpcUa-Endpoint",
+    "endpoint": "opc.tcp://askill-sim-lab:54840/UA/SIMLAB",
+    "secpol": "None",
+    "secmode": "None",
+    "none": true,
+    "login": false,
+    "usercert": false,
+    "usercertificate": "",
+    "userprivatekey": ""
+  },
+  {
+    "id": "7e7573ab7e7573ab",
+    "type": "modbus-server",
+    "z": "658f5703658f5703",
+    "name": "SIM-LAB Modbus slave",
+    "logEnabled": false,
+    "hostname": "0.0.0.0",
+    "port": "5020",
+    "serverPort": 5020,
+    "responseDelay": 50,
+    "delayUnit": "ms",
+    "coilsBufferSize": 2000,
+    "holdingBufferSize": 2000,
+    "inputBufferSize": 2000,
+    "discreteBufferSize": 2000,
+    "showErrors": true,
+    "x": 240,
+    "y": 120,
+    "wires": [
+      [],
+      [],
+      [],
+      [],
+      []
+    ]
+  },
+  {
+    "id": "0e35d9dc0e35d9dc",
+    "type": "OpcUa-Server",
+    "z": "658f5703658f5703",
+    "port": "54840",
+    "name": "SIM-LAB OPC UA (UaExpert)",
+    "endpoint": "UA/SIMLAB",
+    "endpointNone": true,
+    "endpointSign": false,
+    "endpointSignEncrypt": false,
+    "endpointBasic128Rsa15": false,
+    "endpointBasic256": false,
+    "endpointBasic256Sha256": false,
+    "registerServer": false,
+    "constructDefaultAddressSpace": true,
+    "allowAnonymous": true,
+    "maxAllowedSessionNumber": 10,
+    "maxConnectionsPerEndpoint": 10,
+    "maxAllowedSubscriptionNumber": 50,
+    "maxNodesPerBrowse": 0,
+    "maxNodesPerHistoryReadData": 0,
+    "maxNodesPerHistoryReadEvents": 0,
+    "maxNodesPerHistoryUpdateData": 0,
+    "maxNodesPerRead": 0,
+    "maxNodesPerWrite": 0,
+    "maxNodesPerMethodCall": 0,
+    "maxNodesPerRegisterNodes": 0,
+    "maxNodesPerNodeManagement": 0,
+    "maxMonitoredItemsPerCall": 0,
+    "maxNodesPerHistoryUpdateEvents": 0,
+    "maxNodesPerTranslateBrowsePathsToNodeIds": 0,
+    "x": 240,
+    "y": 240,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "900e8fd9900e8fd9",
+    "type": "comment",
+    "z": "658f5703658f5703",
+    "name": "Modbus es el demo. OPC UA es optativo.",
+    "info": "UaExpert: opc.tcp://localhost:54840/UA/SIMLAB",
+    "x": 240,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "7226ab327226ab32",
+    "type": "inject",
+    "z": "658f5703658f5703",
+    "name": "Al arrancar: addVariable OPC",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 4,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 80,
+    "y": 360,
+    "wires": [
+      [
+        "dac7fddbdac7fddb"
+      ]
+    ]
+  },
+  {
+    "id": "dac7fddbdac7fddb",
+    "type": "delay",
+    "z": "658f5703658f5703",
+    "name": "espera server",
+    "pauseType": "delay",
+    "timeout": "2000",
+    "timeoutUnits": "milliseconds",
+    "rate": "1",
+    "nbRateUnits": "1",
+    "rateUnits": "second",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": false,
+    "allowrate": false,
+    "outputs": 1,
+    "x": 240,
+    "y": 360,
+    "wires": [
+      [
+        "0aa7b0870aa7b087"
+      ]
+    ]
+  },
+  {
+    "id": "0aa7b0870aa7b087",
+    "type": "function",
+    "z": "658f5703658f5703",
+    "name": "lista addVariable",
+    "func": "const vars = [\n    'ns=1;s=SIM.machine_status;datatype=UInt16;value=1',\n    'ns=1;s=SIM.heartbeat;datatype=Boolean;value=true',\n    'ns=1;s=SIM.flags;datatype=UInt16;value=0',\n    'ns=1;s=SIM.total_count;datatype=UInt32;value=0',\n    'ns=1;s=SIM.good_count;datatype=UInt32;value=0',\n    'ns=1;s=SIM.reject_count;datatype=UInt32;value=0',\n    'ns=1;s=SIM.power_kw;datatype=Float;value=0',\n    'ns=1;s=SIM.consumption_kwh;datatype=Float;value=0',\n    'ns=1;s=SIM.vibration_rms_mm_s;datatype=Float;value=0',\n    'ns=1;s=SIM.temperature_bearing_c;datatype=Float;value=0',\n    'ns=1;s=SIM.dyn0.key;datatype=String;value=',\n    'ns=1;s=SIM.dyn0.value;datatype=Float;value=0',\n    'ns=1;s=SIM.dyn1.key;datatype=String;value=',\n    'ns=1;s=SIM.dyn1.value;datatype=Float;value=0',\n];\nmsg.payload = vars.map((topic) => ({\n    topic,\n    payload: { opcuaCommand: 'addVariable' },\n}));\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 430,
+    "y": 360,
+    "wires": [
+      [
+        "82c5f3cb82c5f3cb"
+      ]
+    ]
+  },
+  {
+    "id": "82c5f3cb82c5f3cb",
+    "type": "split",
+    "z": "658f5703658f5703",
+    "name": "1 var",
+    "splt": "\\n",
+    "spltType": "str",
+    "arraySplt": 1,
+    "arraySpltType": "len",
+    "stream": false,
+    "addname": "",
+    "property": "payload",
+    "x": 600,
+    "y": 360,
+    "wires": [
+      [
+        "93c3eb6793c3eb67"
+      ]
+    ]
+  },
+  {
+    "id": "93c3eb6793c3eb67",
+    "type": "function",
+    "z": "658f5703658f5703",
+    "name": "topic addVariable",
+    "func": "msg.topic = msg.payload.topic;\nmsg.payload = msg.payload.payload;\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 760,
+    "y": 360,
+    "wires": [
+      [
+        "0e35d9dc0e35d9dc"
+      ]
+    ]
+  },
+  {
+    "id": "61176c9461176c94",
+    "type": "ui_button",
+    "z": "12b5c66012b5c660",
+    "name": "p1",
+    "group": "621ed636621ed636",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "label": "1 · Running + OEE",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "className": "",
+    "icon": "",
+    "payload": "running_oee",
+    "payloadType": "str",
+    "topic": "preset",
+    "topicType": "str",
+    "x": 80,
+    "y": 80,
+    "wires": [
+      [
+        "dab52802dab52802"
+      ]
+    ]
+  },
+  {
+    "id": "6417714d6417714d",
+    "type": "ui_button",
+    "z": "12b5c66012b5c660",
+    "name": "p2",
+    "group": "621ed636621ed636",
+    "order": 2,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "label": "2 · Sin total_count",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "className": "",
+    "icon": "",
+    "payload": "no_total",
+    "payloadType": "str",
+    "topic": "preset",
+    "topicType": "str",
+    "x": 80,
+    "y": 120,
+    "wires": [
+      [
+        "dab52802dab52802"
+      ]
+    ]
+  },
+  {
+    "id": "63176fba63176fba",
+    "type": "ui_button",
+    "z": "12b5c66012b5c660",
+    "name": "p3",
+    "group": "621ed636621ed636",
+    "order": 3,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "label": "3 · Falla + vibración",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "className": "",
+    "icon": "",
+    "payload": "fault_vib",
+    "payloadType": "str",
+    "topic": "preset",
+    "topicType": "str",
+    "x": 80,
+    "y": 160,
+    "wires": [
+      [
+        "dab52802dab52802"
+      ]
+    ]
+  },
+  {
+    "id": "5e1767db5e1767db",
+    "type": "ui_button",
+    "z": "12b5c66012b5c660",
+    "name": "p4",
+    "group": "621ed636621ed636",
+    "order": 4,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "label": "4 · 2 dynamic_variables",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "className": "",
+    "icon": "",
+    "payload": "two_dyn",
+    "payloadType": "str",
+    "topic": "preset",
+    "topicType": "str",
+    "x": 80,
+    "y": 200,
+    "wires": [
+      [
+        "dab52802dab52802"
+      ]
+    ]
+  },
+  {
+    "id": "8c0f61808c0f6180",
+    "type": "ui_dropdown",
+    "z": "12b5c66012b5c660",
+    "name": "status",
+    "label": "machine_status",
+    "tooltip": "",
+    "place": "Seleccionar",
+    "group": "4f3240054f324005",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "multiple": false,
+    "options": [
+      {
+        "label": "0 — Apagado",
+        "value": 0,
+        "type": "num"
+      },
+      {
+        "label": "1 — Running",
+        "value": 1,
+        "type": "num"
+      },
+      {
+        "label": "2 — Parada programada",
+        "value": 2,
+        "type": "num"
+      },
+      {
+        "label": "3 — Falla",
+        "value": 3,
+        "type": "num"
+      }
+    ],
+    "payload": "",
+    "topic": "machine_status",
+    "topicType": "str",
+    "className": "",
+    "x": 80,
+    "y": 280,
+    "wires": [
+      [
+        "0d2ee75b0d2ee75b"
+      ]
+    ]
+  },
+  {
+    "id": "83db798583db7985",
+    "type": "ui_switch",
+    "z": "12b5c66012b5c660",
+    "name": "hb",
+    "label": "heartbeat",
+    "tooltip": "",
+    "group": "4f3240054f324005",
+    "order": 2,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "decouple": "false",
+    "topic": "heartbeat",
+    "topicType": "str",
+    "style": "",
+    "onvalue": true,
+    "onvalueType": "bool",
+    "onicon": "",
+    "oncolor": "",
+    "offvalue": false,
+    "offvalueType": "bool",
+    "officon": "",
+    "offcolor": "",
+    "animate": true,
+    "className": "",
+    "x": 80,
+    "y": 320,
+    "wires": [
+      [
+        "0d2ee75b0d2ee75b"
+      ]
+    ]
+  },
+  {
+    "id": "ffc8089fffc8089f",
+    "type": "ui_switch",
+    "z": "12b5c66012b5c660",
+    "name": "incp",
+    "label": "Incluir producción",
+    "tooltip": "",
+    "group": "4f3240054f324005",
+    "order": 3,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "decouple": "false",
+    "topic": "include.production",
+    "topicType": "str",
+    "style": "",
+    "onvalue": true,
+    "onvalueType": "bool",
+    "onicon": "",
+    "oncolor": "",
+    "offvalue": false,
+    "offvalueType": "bool",
+    "officon": "",
+    "offcolor": "",
+    "animate": true,
+    "className": "",
+    "x": 80,
+    "y": 360,
+    "wires": [
+      [
+        "0d2ee75b0d2ee75b"
+      ]
+    ]
+  },
+  {
+    "id": "17a2475a17a2475a",
+    "type": "ui_numeric",
+    "z": "12b5c66012b5c660",
+    "name": "tot",
+    "label": "total_count",
+    "tooltip": "",
+    "group": "4f3240054f324005",
+    "order": 4,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "topic": "production.total_count",
+    "topicType": "str",
+    "format": "{{value}}",
+    "min": 0,
+    "max": 2147483647,
+    "step": 1,
+    "wrap": false,
+    "className": "",
+    "x": 80,
+    "y": 400,
+    "wires": [
+      [
+        "0d2ee75b0d2ee75b"
+      ]
+    ]
+  },
+  {
+    "id": "8b17aeb28b17aeb2",
+    "type": "ui_numeric",
+    "z": "12b5c66012b5c660",
+    "name": "pk",
+    "label": "power_kw",
+    "tooltip": "",
+    "group": "4f3240054f324005",
+    "order": 5,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "topic": "energy.power_kw",
+    "topicType": "str",
+    "format": "{{value}}",
+    "min": 0,
+    "max": 10000,
+    "step": 0.1,
+    "wrap": false,
+    "className": "",
+    "x": 80,
+    "y": 440,
+    "wires": [
+      [
+        "0d2ee75b0d2ee75b"
+      ]
+    ]
+  },
+  {
+    "id": "503cd602503cd602",
+    "type": "ui_numeric",
+    "z": "12b5c66012b5c660",
+    "name": "dyn",
+    "label": "temp_camara_combustion_c",
+    "tooltip": "",
+    "group": "4f3240054f324005",
+    "order": 6,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "topic": "dyn.0.value",
+    "topicType": "str",
+    "format": "{{value}}",
+    "min": -50,
+    "max": 2000,
+    "step": 0.1,
+    "wrap": false,
+    "className": "",
+    "x": 80,
+    "y": 480,
+    "wires": [
+      [
+        "0d2ee75b0d2ee75b"
+      ]
+    ]
+  },
+  {
+    "id": "9417ffb29417ffb2",
+    "type": "ui_button",
+    "z": "12b5c66012b5c660",
+    "name": "write",
+    "group": "4f3240054f324005",
+    "order": 7,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "label": "Escribir a Modbus ahora",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "className": "",
+    "icon": "",
+    "payload": "write",
+    "payloadType": "str",
+    "topic": "force_write",
+    "topicType": "str",
+    "x": 80,
+    "y": 520,
+    "wires": [
+      [
+        "0d2ee75b0d2ee75b"
+      ]
+    ]
+  },
+  {
+    "id": "dab52802dab52802",
+    "type": "function",
+    "z": "12b5c66012b5c660",
+    "name": "aplicar preset",
+    "func": "const presets = global.get('labPresets');\nconst lab = presets.apply(msg.payload);\nflow.set('lab', lab);\nconst sync = [\n    { topic: 'machine_status', payload: lab.machine_status },\n    { topic: 'heartbeat', payload: lab.heartbeat },\n    { topic: 'include.production', payload: !!(lab.include.total_count || lab.include.good_count || lab.include.reject_count) },\n    { topic: 'production.total_count', payload: lab.production.total_count },\n    { topic: 'energy.power_kw', payload: lab.energy.power_kw },\n    { topic: 'dyn.0.value', payload: (lab.dyn[0] && lab.dyn[0].value) || 0 },\n];\nreturn [sync, { lab }];\n",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 360,
+    "y": 140,
+    "wires": [
+      [
+        "61176c9461176c94",
+        "6417714d6417714d",
+        "63176fba63176fba",
+        "5e1767db5e1767db",
+        "8c0f61808c0f6180",
+        "83db798583db7985",
+        "ffc8089fffc8089f",
+        "17a2475a17a2475a",
+        "8b17aeb28b17aeb2",
+        "503cd602503cd602"
+      ],
+      [
+        "843ea218843ea218"
+      ]
+    ]
+  },
+  {
+    "id": "0d2ee75b0d2ee75b",
+    "type": "function",
+    "z": "12b5c66012b5c660",
+    "name": "merge knobs",
+    "func": "const codec = global.get('modbusCodec');\nconst lab = flow.get('lab') || codec.defaultLab();\nif (msg.topic === 'include.production') {\n    const on = !!msg.payload;\n    lab.include.total_count = on;\n    lab.include.good_count = on;\n    lab.include.reject_count = on;\n    if (on && !lab.production.total_count) {\n        lab.production.total_count = 15420;\n        lab.production.good_count = 15395;\n        lab.production.reject_count = 25;\n    }\n} else if (msg.topic === 'dyn.0.value') {\n    if (!lab.dyn[0]) lab.dyn[0] = { on: true, key: 'temp_camara_combustion_c', value: 0 };\n    lab.dyn[0].value = msg.payload;\n    lab.dyn[0].on = true;\n    if (!lab.dyn[0].key) lab.dyn[0].key = 'temp_camara_combustion_c';\n} else if (msg.topic === 'energy.power_kw') {\n    lab.energy.power_kw = msg.payload;\n    lab.include.power_kw = true;\n} else if (msg.topic) {\n    codec.setPath(lab, msg.topic, msg.payload);\n}\nflow.set('lab', lab);\nmsg.lab = lab;\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 360,
+    "y": 360,
+    "wires": [
+      [
+        "4b1d15554b1d1555"
+      ]
+    ]
+  },
+  {
+    "id": "4b1d15554b1d1555",
+    "type": "delay",
+    "z": "12b5c66012b5c660",
+    "name": "debounce 400ms",
+    "pauseType": "delay",
+    "timeout": "400",
+    "timeoutUnits": "milliseconds",
+    "rate": "1",
+    "nbRateUnits": "1",
+    "rateUnits": "second",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": true,
+    "allowrate": false,
+    "outputs": 1,
+    "x": 560,
+    "y": 360,
+    "wires": [
+      [
+        "843ea218843ea218"
+      ]
+    ]
+  },
+  {
+    "id": "843ea218843ea218",
+    "type": "function",
+    "z": "12b5c66012b5c660",
+    "name": "encode HR + FC16",
+    "func": "const codec = global.get('modbusCodec');\nconst lab = (msg.lab) || flow.get('lab') || codec.defaultLab();\nconst values = codec.encodeHolding(lab);\nmsg.payload = {\n    value: values,\n    fc: 16,\n    unitid: 1,\n    address: 0,\n    quantity: values.length,\n};\nmsg.lab = lab;\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 780,
+    "y": 240,
+    "wires": [
+      [
+        "6deb708f6deb708f"
+      ]
+    ]
+  },
+  {
+    "id": "6deb708f6deb708f",
+    "type": "modbus-flex-write",
+    "z": "12b5c66012b5c660",
+    "name": "Modbus TCP write",
+    "showStatusActivities": true,
+    "showErrors": true,
+    "showWarnings": true,
+    "server": "8363f82f8363f82f",
+    "emptyMsgOnFail": false,
+    "keepMsgProperties": true,
+    "delayOnStart": true,
+    "startDelayTime": "3",
+    "x": 1020,
+    "y": 240,
+    "wires": [
+      [
+        "d892ae24d892ae24"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "d892ae24d892ae24",
+    "type": "debug",
+    "z": "12b5c66012b5c660",
+    "name": "write Modbus OK",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": true,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "payload",
+    "statusType": "auto",
+    "x": 1240,
+    "y": 240,
+    "wires": []
+  },
+  {
+    "id": "8574830f8574830f",
+    "type": "inject",
+    "z": "12b5c66012b5c660",
+    "name": "Semilla: Running + OEE",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 4,
+    "topic": "preset",
+    "payload": "running_oee",
+    "payloadType": "str",
+    "x": 80,
+    "y": 40,
+    "wires": [
+      [
+        "dab52802dab52802"
+      ]
+    ]
+  },
+  {
+    "id": "b8409062b8409062",
+    "type": "comment",
+    "z": "3db848a83db848a8",
+    "name": "Poll Modbus 8 s · HTTP off",
+    "info": "Inject «OPC UA read una vez» no entra en el poll.",
+    "x": 160,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "da951f87da951f87",
+    "type": "inject",
+    "z": "3db848a83db848a8",
+    "name": "poll Modbus 8s",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "8",
+    "crontab": "",
+    "once": true,
+    "onceDelay": "8",
+    "topic": "poll",
+    "payload": "",
+    "payloadType": "date",
+    "x": 120,
+    "y": 140,
+    "wires": [
+      [
+        "4062ccac4062ccac"
+      ]
+    ]
+  },
+  {
+    "id": "4062ccac4062ccac",
+    "type": "function",
+    "z": "3db848a83db848a8",
+    "name": "FC3 request",
+    "func": "const codec = global.get('modbusCodec');\nmsg.payload = { fc: 3, unitid: 1, address: 0, quantity: codec.HR_COUNT };\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 320,
+    "y": 140,
+    "wires": [
+      [
+        "e0d9aa9ce0d9aa9c"
+      ]
+    ]
+  },
+  {
+    "id": "e0d9aa9ce0d9aa9c",
+    "type": "modbus-flex-getter",
+    "z": "3db848a83db848a8",
+    "name": "Modbus TCP read",
+    "showStatusActivities": true,
+    "showErrors": true,
+    "showWarnings": true,
+    "logIOActivities": false,
+    "server": "8363f82f8363f82f",
+    "useIOFile": false,
+    "ioFile": "",
+    "useIOForPayload": false,
+    "emptyMsgOnFail": false,
+    "keepMsgProperties": true,
+    "delayOnStart": true,
+    "startDelayTime": "3",
+    "x": 540,
+    "y": 140,
+    "wires": [
+      [
+        "7caef3947caef394"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "7caef3947caef394",
+    "type": "function",
+    "z": "3db848a83db848a8",
+    "name": "normalizar Askill (Modbus)",
+    "func": "const codec = global.get('modbusCodec');\nconst normalize = global.get('normalizeAskill');\nconst lab = flow.get('lab') || codec.defaultLab();\nconst regs = Array.isArray(msg.payload) ? msg.payload : (msg.payload && msg.payload.data) || [];\nconst decoded = codec.decodeHolding(regs);\nconst snapshot = normalize.mergeSnapshot(decoded, lab);\ntry {\n    msg.payload = normalize.buildIngestPayload({\n        snapshot,\n        assetId: env.get('ASKILL_ASSET_UUID'),\n        tenantId: env.get('ASKILL_TENANT_ID'),\n        now: new Date(),\n    });\n    msg.headers = {\n        Authorization: 'Bearer ' + (env.get('ASKILL_GATEWAY_TOKEN') || ''),\n        'Content-Type': 'application/json',\n    };\n    msg.url = env.get('ASKILL_INGEST_URL') || '';\n    msg.method = 'POST';\n    msg.source = 'modbus-tcp';\n    return [msg, null];\n} catch (err) {\n    msg.payload = { error: err.message, field: err.field || 'body', source: 'modbus-tcp' };\n    return [null, msg];\n}\n",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 780,
+    "y": 140,
+    "wires": [
+      [
+        "59f746e659f746e6"
+      ],
+      [
+        "38cde01938cde019"
+      ]
+    ]
+  },
+  {
+    "id": "4468edd64468edd6",
+    "type": "inject",
+    "z": "3db848a83db848a8",
+    "name": "OPC UA read una vez",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 120,
+    "y": 280,
+    "wires": [
+      [
+        "abfc1461abfc1461"
+      ]
+    ]
+  },
+  {
+    "id": "abfc1461abfc1461",
+    "type": "function",
+    "z": "3db848a83db848a8",
+    "name": "OPC UA readmultiple",
+    "func": "msg.topic = 'readmultiple';\nmsg.payload = [\n    'ns=1;s=SIM.machine_status',\n    'ns=1;s=SIM.heartbeat',\n    'ns=1;s=SIM.flags',\n    'ns=1;s=SIM.total_count',\n    'ns=1;s=SIM.good_count',\n    'ns=1;s=SIM.reject_count',\n    'ns=1;s=SIM.power_kw',\n    'ns=1;s=SIM.consumption_kwh',\n    'ns=1;s=SIM.vibration_rms_mm_s',\n    'ns=1;s=SIM.temperature_bearing_c',\n    'ns=1;s=SIM.dyn0.key',\n    'ns=1;s=SIM.dyn0.value',\n    'ns=1;s=SIM.dyn1.key',\n    'ns=1;s=SIM.dyn1.value',\n];\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 320,
+    "y": 280,
+    "wires": [
+      [
+        "468bb009468bb009"
+      ]
+    ]
+  },
+  {
+    "id": "468bb009468bb009",
+    "type": "OpcUa-Client",
+    "z": "3db848a83db848a8",
+    "endpoint": "48ac06da48ac06da",
+    "action": "read",
+    "deadbandtype": "a",
+    "deadbandvalue": 1,
+    "time": 10,
+    "timeUnit": "s",
+    "certificate": "n",
+    "localfile": "",
+    "localkeyfile": "",
+    "securitymode": "None",
+    "securitypolicy": "None",
+    "name": "OPC UA TCP read",
+    "x": 540,
+    "y": 280,
+    "wires": [
+      [
+        "6d1761816d176181"
+      ]
+    ]
+  },
+  {
+    "id": "6d1761816d176181",
+    "type": "function",
+    "z": "3db848a83db848a8",
+    "name": "normalizar Askill (OPC UA)",
+    "func": "const normalize = global.get('normalizeAskill');\nconst codec = global.get('modbusCodec');\nconst lab = flow.get('lab') || codec.defaultLab();\nconst map = normalize.parseOpcUaRead(msg.payload);\nconst decoded = normalize.snapshotFromOpcUa(map);\nconst snapshot = normalize.mergeSnapshot(decoded, {\n    ...lab,\n    dyn: decoded.dyn.map((d, i) => ({\n        on: d.on,\n        key: d.key || ((lab.dyn[i] || {}).key) || '',\n        value: d.value,\n    })),\n});\ntry {\n    msg.payload = normalize.buildIngestPayload({\n        snapshot,\n        assetId: env.get('ASKILL_ASSET_UUID'),\n        tenantId: env.get('ASKILL_TENANT_ID'),\n        now: new Date(),\n    });\n    msg.headers = {\n        Authorization: 'Bearer ' + (env.get('ASKILL_GATEWAY_TOKEN') || ''),\n        'Content-Type': 'application/json',\n    };\n    msg.url = env.get('ASKILL_INGEST_URL') || '';\n    msg.method = 'POST';\n    msg.source = 'opcua-tcp';\n    return [msg, null];\n} catch (err) {\n    msg.payload = { error: err.message, field: err.field || 'body', source: 'opcua-tcp' };\n    return [null, msg];\n}\n",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 780,
+    "y": 280,
+    "wires": [
+      [
+        "59f746e659f746e6"
+      ],
+      [
+        "38cde01938cde019"
+      ]
+    ]
+  },
+  {
+    "id": "59f746e659f746e6",
+    "type": "function",
+    "z": "3db848a83db848a8",
+    "name": "fan-out objeto",
+    "func": "const pretty = { ...msg, payload: JSON.stringify(msg.payload, null, 2) };\nnode.send([msg, pretty]);\nreturn null;\n",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1020,
+    "y": 180,
+    "wires": [
+      [
+        "ee5d8543ee5d8543",
+        "b7783680b7783680"
+      ],
+      [
+        "406dfeed406dfeed"
+      ]
+    ]
+  },
+  {
+    "id": "b7783680b7783680",
+    "type": "debug",
+    "z": "3db848a83db848a8",
+    "name": "JSON ingest",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": true,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "payload",
+    "statusType": "auto",
+    "x": 1260,
+    "y": 80,
+    "wires": []
+  },
+  {
+    "id": "38cde01938cde019",
+    "type": "debug",
+    "z": "3db848a83db848a8",
+    "name": "error normalizar",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": true,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "payload",
+    "statusType": "auto",
+    "x": 1020,
+    "y": 360,
+    "wires": []
+  },
+  {
+    "id": "406dfeed406dfeed",
+    "type": "ui_template",
+    "z": "3db848a83db848a8",
+    "group": "5a3012bf5a3012bf",
+    "name": "payload UI",
+    "order": 1,
+    "width": "6",
+    "height": "6",
+    "format": "<pre style=\"margin:0;font-size:12px;white-space:pre-wrap;\">{{msg.payload}}</pre>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "resendOnRefresh": true,
+    "templateScope": "local",
+    "className": "",
+    "x": 1260,
+    "y": 200,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "ee5d8543ee5d8543",
+    "type": "function",
+    "z": "3db848a83db848a8",
+    "name": "¿ENABLE_ASKILL_INGEST?",
+    "func": "if (String(env.get('ENABLE_ASKILL_INGEST') || '').toLowerCase() === 'true') {\n    return [msg, null];\n}\nmsg.payload = { armed: false, hint: 'HTTP Request disabled + ENABLE_ASKILL_INGEST≠true' };\nreturn [null, msg];\n",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1260,
+    "y": 140,
+    "wires": [
+      [
+        "b3b8ec8db3b8ec8d"
+      ],
+      [
+        "da5d6243da5d6243"
+      ]
+    ]
+  },
+  {
+    "id": "b3b8ec8db3b8ec8d",
+    "type": "http request",
+    "z": "3db848a83db848a8",
+    "name": "POST /api/iiot/ingest (OFF)",
+    "method": "use",
+    "ret": "obj",
+    "paytoqs": "ignore",
+    "url": "",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "insecureHTTPParser": false,
+    "authType": "",
+    "senderr": false,
+    "headers": [],
+    "x": 1500,
+    "y": 120,
+    "wires": [
+      [
+        "889194ae889194ae"
+      ]
+    ],
+    "d": true
+  },
+  {
+    "id": "889194ae889194ae",
+    "type": "debug",
+    "z": "3db848a83db848a8",
+    "name": "respuesta Askill",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": true,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "payload",
+    "statusType": "auto",
+    "x": 1720,
+    "y": 120,
+    "wires": []
+  },
+  {
+    "id": "da5d6243da5d6243",
+    "type": "debug",
+    "z": "3db848a83db848a8",
+    "name": "ingest desarmado",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": true,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "payload",
+    "statusType": "auto",
+    "x": 1500,
+    "y": 200,
+    "wires": []
+  }
+]
