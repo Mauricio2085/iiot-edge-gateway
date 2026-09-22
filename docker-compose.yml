@@ -19,9 +19,9 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
-      - ./nodered/flows.json:/data/flows.json
-      - ./nodered/settings.js:/data/settings.js
-      - ./nodered/lab:/data/lab:ro
+      # Directorio, no archivos sueltos: Node-RED guarda con rename
+      # (flows.json.$$$ → flows.json) y un bind-mount de archivo da EBUSY.
+      - ./nodered:/data
       - nodered_context:/data/context
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://127.0.0.1:1880/"]
